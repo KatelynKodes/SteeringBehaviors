@@ -2,7 +2,7 @@
 #include "Actor.h"
 #include "Transform2D.h"
 
-class PlayerMovement;
+class MoveComponent;
 class InputComponent;
 class SpriteComponent;
 
@@ -19,12 +19,14 @@ public:
 	MathLibrary::Vector2 getVelocity() { return m_velocity; }
 
 	//update method
-	void start()override;
+	void start() override;
 	void update(float deltaTime) override;
+	void draw() override;
 
 private:
 	MathLibrary::Vector2 m_velocity;
 	InputComponent* m_inputComponent;
+	MoveComponent* m_moveComponent;
 	SpriteComponent* m_spriteComponent;
 };
 

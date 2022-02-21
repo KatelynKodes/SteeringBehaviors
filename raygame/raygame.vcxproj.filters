@@ -87,7 +87,7 @@
       <Filter>Source Files\Colliders</Filter>
     </ClCompile>
     <ClCompile Include="MoveComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -143,7 +143,7 @@
       <Filter>Header Files\Actors</Filter>
     </ClInclude>
     <ClInclude Include="MoveComponent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

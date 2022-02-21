@@ -1,9 +1,8 @@
 #include "Player.h"
-#include "PlayerMovement.h"
+#include "MoveComponent.h"
 #include "InputComponent.h"
 #include "SpriteComponent.h"
-
-
+#include "CircleCollider.h"
 
 Player::Player()
 {
@@ -21,17 +20,28 @@ Player::~Player()
 void Player::start()
 {
 	Actor::start();
-
 	m_inputComponent = dynamic_cast<InputComponent*>(addComponent(new InputComponent()));
-	//PUT MOVECOMPONENT HERE
+	m_moveComponent = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
+	m_moveComponent->setMaxSpeed(10);
 	m_spriteComponent = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/player.png")));
 }
 
 void Player::update(float deltaTime)
 {
+	Actor::update(deltaTime);
+
 	MathLibrary::Vector2 moveDirection = m_inputComponent->getMoveAxis();
 
-	//Run the moveComponent getVelocity method
+	//If the velocity is greater than 0...
+	if (m_moveComponent->getVelocity().getMagnitude() > 0)
+		//...Rotate the player
+		getTransform()->setForward(m_moveComponent->getVelocity());
 
-	Actor::update(deltaTime);
+	m_moveComponent->setVelocity(moveDirection * m_moveComponent->getMaxSpeed());
+}
+
+void Player::draw()
+{
+	Actor::draw();
+	getCollider()->draw();
 }

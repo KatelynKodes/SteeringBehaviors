@@ -67,6 +67,8 @@ Component* Actor::addComponent(Component* component)
     newComponents[m_componentCount] = component;
     m_components = newComponents;
     m_componentCount++;
+
+    return component;
 }
 
 bool Actor::removeComponent(Component* component)
