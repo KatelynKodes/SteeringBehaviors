@@ -25,10 +25,6 @@ void Player::start()
 	m_inputComponent = dynamic_cast<InputComponent*>(addComponent(new InputComponent()));
 	//PUT MOVECOMPONENT HERE
 	m_spriteComponent = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/player.png")));
-
-	//Set spawn point
-	//Set move speed
-	//Set position clamps
 }
 
 void Player::update(float deltaTime)
