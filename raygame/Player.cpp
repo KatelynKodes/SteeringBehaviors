@@ -22,7 +22,7 @@ void Player::start()
 	Actor::start();
 	m_inputComponent = dynamic_cast<InputComponent*>(addComponent(new InputComponent()));
 	m_moveComponent = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
-	m_moveComponent->setMaxSpeed(10);
+	m_moveComponent->setMaxSpeed(500);
 	m_spriteComponent = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/player.png")));
 }
 
@@ -30,12 +30,7 @@ void Player::update(float deltaTime)
 {
 	MathLibrary::Vector2 moveDirection = m_inputComponent->getMoveAxis();
 
-	//If the velocity is greater than 0...
-	if (m_moveComponent->getVelocity().getMagnitude() > 0)
-		//...Rotate the player
-		getTransform()->setForward(m_moveComponent->getVelocity());
-
-	m_moveComponent->setVelocity(moveDirection * 200);
+	m_moveComponent->setVelocity(moveDirection * m_moveComponent->getMaxSpeed());
 
 	Actor::update(deltaTime);
 }
@@ -43,5 +38,4 @@ void Player::update(float deltaTime)
 void Player::draw()
 {
 	Actor::draw();
-	getCollider()->draw();
 }

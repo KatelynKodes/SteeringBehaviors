@@ -20,7 +20,7 @@ void ChaseEnemy::start()
 	m_moveComponent = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
 	m_moveComponent->setMaxSpeed(m_enemySpeed);
 	m_spriteComponent = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/enemy.png")));
-	m_seekComponent = dynamic_cast <SeekComponent*>(addComponent(new SeekComponent(m_chasee, 32)));
+	m_seekComponent = dynamic_cast <SeekComponent*>(addComponent(new SeekComponent(m_chasee, 60)));
 	m_seekComponent->setMoveComponent(m_moveComponent);
 }
 
