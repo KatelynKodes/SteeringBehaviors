@@ -9,12 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Header Files\Images">
-      <UniqueIdentifier>{f9f9996b-166b-464d-91a5-546053132a29}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scenes">
-      <UniqueIdentifier>{df356fd6-57cc-422a-bf8f-c1a644db72c5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Components">
       <UniqueIdentifier>{df7bead0-4b8e-4060-82ab-6f8f8f474e3d}</UniqueIdentifier>
     </Filter>
@@ -33,6 +27,12 @@
     <Filter Include="Source Files\Colliders">
       <UniqueIdentifier>{9c5471e1-e4fc-4aa0-8698-e5c39ee60483}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Scenes">
+      <UniqueIdentifier>{df356fd6-57cc-422a-bf8f-c1a644db72c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scenes">
+      <UniqueIdentifier>{cfb3614a-0a5c-401e-a8bb-087ef35e58d4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -46,12 +46,6 @@
     </ClCompile>
     <ClCompile Include="ActorArray.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="StartingScene.cpp">
-      <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="Component.cpp">
       <Filter>Source Files\Components</Filter>
@@ -89,6 +83,15 @@
     <ClCompile Include="MoveComponent.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
+    <ClCompile Include="ChaseEnemy.cpp">
+      <Filter>Source Files\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="StartingScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -116,10 +119,10 @@
       <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
-      <Filter>Scenes</Filter>
+      <Filter>Header Files\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="StartingScene.h">
-      <Filter>Scenes</Filter>
+      <Filter>Header Files\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
@@ -145,17 +148,9 @@
     <ClInclude Include="MoveComponent.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\MathForGames\Images\player.png">
-      <Filter>Header Files\Images</Filter>
-    </Image>
-    <Image Include="..\..\MathForGames\Images\bullet.png">
-      <Filter>Header Files\Images</Filter>
-    </Image>
-    <Image Include="..\..\MathForGames\Images\enemy.png">
-      <Filter>Header Files\Images</Filter>
-    </Image>
+    <ClInclude Include="ChaseEnemy.h">
+      <Filter>Header Files\Actors</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="raygame.rc" />

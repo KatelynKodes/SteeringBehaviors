@@ -28,8 +28,6 @@ void Player::start()
 
 void Player::update(float deltaTime)
 {
-	Actor::update(deltaTime);
-
 	MathLibrary::Vector2 moveDirection = m_inputComponent->getMoveAxis();
 
 	//If the velocity is greater than 0...
@@ -37,7 +35,9 @@ void Player::update(float deltaTime)
 		//...Rotate the player
 		getTransform()->setForward(m_moveComponent->getVelocity());
 
-	m_moveComponent->setVelocity(moveDirection * m_moveComponent->getMaxSpeed());
+	m_moveComponent->setVelocity(moveDirection * 200);
+
+	Actor::update(deltaTime);
 }
 
 void Player::draw()

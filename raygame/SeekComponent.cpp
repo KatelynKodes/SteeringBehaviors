@@ -1,12 +1,6 @@
 #include "SeekComponent.h"
 
-SeekComponent::SeekComponent()
-{
-	m_target = nullptr;
-	m_seekForce = 0;
-}
-
-SeekComponent::SeekComponent(const char* name, Actor* target, float seekForce) : Component::Component(name)
+SeekComponent::SeekComponent(Actor* target, float seekForce, const char* name) : Component::Component(name)
 {
 	m_target = target;
 	m_seekForce = seekForce;
@@ -26,6 +20,11 @@ void SeekComponent::update(float deltaTime)
 {
 	if (m_target != nullptr)
 	{
-		
+		setDesiredVelocity();
+		setSteeringForce();
+
+		m_currentVelocity = m_currentVelocity + (getSteeringForce() * deltaTime);
+
+		m_moveComponent->setVelocity(m_currentVelocity * deltaTime);
 	}
 }

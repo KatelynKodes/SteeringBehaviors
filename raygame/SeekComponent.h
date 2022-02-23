@@ -8,8 +8,7 @@ class SeekComponent :
 	public Component
 {
 public:
-	SeekComponent();
-	SeekComponent(const char* name, Actor* target, float seekForce);
+	SeekComponent( Actor* target, float seekForce, const char* name = "Seek Component");
 
 	void setMoveComponent(MoveComponent* component) { m_moveComponent = component; }
 

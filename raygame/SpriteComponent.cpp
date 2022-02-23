@@ -30,13 +30,13 @@ void SpriteComponent::draw()
 	m_texture->height = m_height;
 
 	//Get the world position of the owner
-	MathLibrary::Vector2 up = { getOwner()->getTransform()->getGlobalMatrix()->m01, getOwner()->getTransform()->getGlobalMatrix()->m01 };
+	MathLibrary::Vector2 up = { getOwner()->getTransform()->getGlobalMatrix()->m01, getOwner()->getTransform()->getGlobalMatrix()->m11 };
 	MathLibrary::Vector2 forward = { getOwner()->getTransform()->getForward() };
 	MathLibrary::Vector2 position = { getOwner()->getTransform()->getWorldPosition() };
 
 	//Change the position of the sprite to be in the center of the transform
 	position = position - (forward * getWidth() / 2);
-	position = position - (up * getHeight() / 2);
+	position = position - (up.getNormalized() * getHeight() / 2);
 
 	//Change the position vector to a raylib vector
 	RAYLIB_H::Vector2 rayPos = { position.x, position.y };

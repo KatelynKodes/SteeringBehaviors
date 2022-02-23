@@ -149,6 +149,7 @@
     <ClCompile Include="AABBCollider.cpp" />
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="ActorArray.cpp" />
+    <ClCompile Include="ChaseEnemy.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Component.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="AABBCollider.h" />
     <ClInclude Include="Actor.h" />
     <ClInclude Include="ActorArray.h" />
+    <ClInclude Include="ChaseEnemy.h" />
     <ClInclude Include="CircleCollider.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Component.h" />
@@ -184,17 +186,6 @@
     <ClInclude Include="StartingScene.h" />
     <ClInclude Include="Transform2D.h" />
     <ClInclude Include="WanderComponent.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\MathForGames\Images\bullet.png">
-      <DeploymentContent>true</DeploymentContent>
-    </Image>
-    <Image Include="..\..\MathForGames\Images\enemy.png">
-      <DeploymentContent>true</DeploymentContent>
-    </Image>
-    <Image Include="..\..\MathForGames\Images\player.png">
-      <DeploymentContent>true</DeploymentContent>
-    </Image>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="raygame.rc" />
