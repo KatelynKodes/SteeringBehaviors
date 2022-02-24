@@ -14,6 +14,7 @@ public:
 
 	void setDesiredVelocity();
 	MathLibrary::Vector2 getDesiredVelocity() { return m_desiredVelocity; }
+
 	void setSteeringForce();
 	MathLibrary::Vector2 getSteeringForce() { return m_steeringForce; }
 

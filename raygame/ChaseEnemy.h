@@ -4,6 +4,7 @@
 class MoveComponent;
 class SpriteComponent;
 class SeekComponent;
+class FleeComponent;
 
 class ChaseEnemy :
 	public Actor
@@ -22,5 +23,6 @@ private:
 	MoveComponent* m_moveComponent;
 	SpriteComponent* m_spriteComponent;
 	SeekComponent* m_seekComponent;
+	FleeComponent* m_fleeComponent;
 };
 

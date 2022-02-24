@@ -2,6 +2,7 @@
 #include "MoveComponent.h"
 #include "SpriteComponent.h"
 #include "SeekComponent.h"
+#include "FleeComponent.h"
 
 ChaseEnemy::ChaseEnemy()
 {
@@ -20,8 +21,11 @@ void ChaseEnemy::start()
 	m_moveComponent = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
 	m_moveComponent->setMaxSpeed(m_enemySpeed);
 	m_spriteComponent = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/enemy.png")));
-	m_seekComponent = dynamic_cast <SeekComponent*>(addComponent(new SeekComponent(m_chasee, 60)));
-	m_seekComponent->setMoveComponent(m_moveComponent);
+	//m_seekComponent = dynamic_cast <SeekComponent*>(addComponent(new SeekComponent(m_chasee, 60)));
+	//m_seekComponent->setMoveComponent(m_moveComponent);
+
+	m_fleeComponent = dynamic_cast<FleeComponent*>(addComponent(new FleeComponent(m_chasee, 50)));
+	m_fleeComponent->setMoveComponent(m_moveComponent);
 }
 
 void ChaseEnemy::update(float deltaTime)
