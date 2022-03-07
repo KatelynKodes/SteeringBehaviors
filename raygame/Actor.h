@@ -60,6 +60,11 @@ public:
     Component* addComponent(Component* component);
 
     /// <summary>
+    /// Called when a new component is added to the actor
+    /// </summary>
+    /// <param name = "component"> The new component to remove from the actor array </param>
+    virtual void onAddNewComponent(Component* component);
+    /// <summary>
     /// Removes the first instance found that matches the component name
     /// </summary>
     /// <param name = "component"> The new component to remove from the actor array </param>

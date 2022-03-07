@@ -1,4 +1,5 @@
 #include "SeekComponent.h"
+#include "Transform2D.h"
 
 SeekComponent::SeekComponent(Actor* target, float seekForce, const char* name) : Component::Component(name)
 {

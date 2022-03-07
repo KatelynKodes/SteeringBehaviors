@@ -1,14 +1,14 @@
 #pragma once
 #include "Component.h"
 #include "MoveComponent.h"
-#include "Transform2D.h"
+#include <Vector2.h>
 #include "Actor.h"
 
 class SeekComponent :
 	public Component
 {
 public:
-	SeekComponent( Actor* target, float seekForce, const char* name = "Seek Component");
+	SeekComponent(Actor* target, float seekForce, const char* name = "Seek Component");
 
 	void setMoveComponent(MoveComponent* component) { m_moveComponent = component; }
 
