@@ -44,9 +44,6 @@
     <ClCompile Include="Transform2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ActorArray.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Component.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
@@ -100,9 +97,6 @@
     <ClInclude Include="Transform2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ActorArray.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Component.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
@@ -150,6 +144,9 @@
     </ClInclude>
     <ClInclude Include="ChaseEnemy.h">
       <Filter>Header Files\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicArray.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
