@@ -11,11 +11,12 @@ public:
 	SeekComponent(Actor* target, float seekForce, const char* name = "Seek Component");
 
 	void setMoveComponent(MoveComponent* component) { m_moveComponent = component; }
+	MoveComponent* getMoveComponent() { return m_moveComponent; }
 
 	void setDesiredVelocity();
 	MathLibrary::Vector2 getDesiredVelocity() { return m_desiredVelocity; }
 
-	void setSteeringForce();
+	virtual MathLibrary::Vector2 setSteeringForce();
 	MathLibrary::Vector2 getSteeringForce() { return m_steeringForce; }
 
 	void update(float deltaTime) override;

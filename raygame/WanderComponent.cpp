@@ -1,34 +1,34 @@
 #include "WanderComponent.h"
 #include "Actor.h"
 #include <stdlib.h>
+#include<time.h>
 
-WanderComponent::WanderComponent(float wanderRadius, float circleOffset, const char* name) : Component::Component(name)
+WanderComponent::WanderComponent(float wanderRadius, float circleDistance, float wanderForce, const char* name) : SeekComponent::SeekComponent(nullptr,wanderForce)
 {
 	m_wanderRadius = wanderRadius;
-	setCirclePos(getOwner()->getTransform()->getLocalPosition());
-	m_circleOffset = MathLibrary::Vector2(circleOffset, 0);
+	m_circleDistance = circleDistance;
 }
 
-WanderComponent::WanderComponent(const char* name)
+MathLibrary::Vector2 WanderComponent::setSteeringForce()
 {
-	MathLibrary::Vector2 ownerSize = getOwner()->getTransform()->getScale();
-	m_wanderRadius = ownerSize.x > ownerSize.y ? ownerSize.x : ownerSize.y;
+	//find the agents position and heading
+	MathLibrary::Vector2 ownerPos = getOwner()->getTransform()->getWorldPosition();
+	MathLibrary::Vector2 heading = getMoveComponent()->getVelocity().getNormalized();
 
-	setCirclePos(getOwner()->getTransform()->getLocalPosition());
-}
+	//Move the circle position away from the owner
+	m_circlePos = ownerPos + (heading * m_circleDistance);
 
-MathLibrary::Vector2 WanderComponent::getIntendedDirection()
-{
-	randPointX = rand() % 100 + (-100);
-	randPointY = rand() % 100 + (-100);
-	MathLibrary::Vector2 direction = MathLibrary::Vector2(randPointX, randPointY);
-	return direction;
-}
+	//find a random vector in the circle
+	float randNum1 = (rand() & 201) - 100;
+	float randNum2 = (rand() & 201) - 100;
 
-void WanderComponent::update(float deltaTime)
-{
-	setCirclePos(getOwner()->getTransform()->getLocalPosition() + m_circleOffset);
+	MathLibrary::Vector2 randDir = MathLibrary::Vector2(randNum1, randNum2).normalize() * m_wanderRadius;
 
-	getIntendedDirection();
+	//Add the random vector to the circle position to get a new random point on the circle
+	m_target = randDir + m_circlePos;
 
+	//Seek to the random point
+	MathLibrary::Vector2 desiredVelocity = MathLibrary::Vector2::normalize(m_target - ownerPos) * getSteeringForce();
+	MathLibrary::Vector2 force = desiredVelocity - getMoveComponent()->getVelocity();
+	return MathLibrary::Vector2();
 }

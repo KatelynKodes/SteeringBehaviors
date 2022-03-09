@@ -12,9 +12,10 @@ void SeekComponent::setDesiredVelocity()
 	m_desiredVelocity = (m_target->getTransform()->getLocalPosition() - getOwner()->getTransform()->getLocalPosition()).normalize() * m_seekForce;
 }
 
-void SeekComponent::setSteeringForce()
+MathLibrary::Vector2 SeekComponent::setSteeringForce()
 {
 	m_steeringForce = m_desiredVelocity - m_currentVelocity;
+	return m_steeringForce;
 }
 
 void SeekComponent::update(float deltaTime)
