@@ -96,6 +96,12 @@ void Transform2D::setLocalPosition(MathLibrary::Vector2 value)
     m_shouldUpdateTransforms = true;
 }
 
+void Transform2D::setParent(Transform2D* parent)
+{
+    m_parent = parent;
+    m_shouldUpdateTransforms = true;
+}
+
 void Transform2D::addChild(Transform2D* child)
 {
     //Create a new array with a size one greater than our old array

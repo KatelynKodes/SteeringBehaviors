@@ -1,32 +1,16 @@
 #include "SeekComponent.h"
 #include "Transform2D.h"
+#include "Actor.h"
 
-SeekComponent::SeekComponent(Actor* target, float seekForce, const char* name) : Component::Component(name)
+MathLibrary::Vector2 SeekComponent::calculateForce()
 {
-	m_target = target;
-	m_seekForce = seekForce;
-}
+	if (!getTarget())
+		return { 0,0 };
 
-void SeekComponent::setDesiredVelocity()
-{
-	m_desiredVelocity = (m_target->getTransform()->getLocalPosition() - getOwner()->getTransform()->getLocalPosition()).normalize() * m_seekForce;
-}
+	setSteeringForce(500);
 
-MathLibrary::Vector2 SeekComponent::setSteeringForce()
-{
-	m_steeringForce = m_desiredVelocity - m_currentVelocity;
-	return m_steeringForce;
-}
-
-void SeekComponent::update(float deltaTime)
-{
-	if (m_target != nullptr)
-	{
-		setDesiredVelocity();
-		setSteeringForce();
-
-		m_currentVelocity = m_currentVelocity + (getSteeringForce() * deltaTime);
-
-		m_moveComponent->setVelocity(m_currentVelocity * deltaTime);
-	}
+	MathLibrary::Vector2 targetDir = getTarget()->getTransform()->getWorldPosition() - getOwner()->getTransform()->getWorldPosition();
+	MathLibrary::Vector2 desiredVelocity = targetDir.getNormalized() * getSteeringForce();
+	MathLibrary::Vector2 seekForce = desiredVelocity - 
+	return seekForce;
 }

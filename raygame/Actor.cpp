@@ -26,20 +26,6 @@ Actor::Actor(float x, float y, const char* name = "Actor")
     m_name = name;
 }
 
-Component* Actor::getComponent(const char* componentName)
-{
-    // Iterate through component array
-    for (int i = 0; i < m_componentCount; i++)
-    {
-        //If the name passed through is the same as the component's name...
-        if (strcmp(m_components[i]->getName(), componentName) == 0)
-            // Return the component
-            return m_components[i];
-    }
-
-    return nullptr;
-}
-
 Component* Actor::addComponent(Component* component)
 {
     Actor* owner = component->getOwner();

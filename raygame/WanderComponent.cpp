@@ -9,8 +9,11 @@ WanderComponent::WanderComponent(float wanderRadius, float circleDistance, float
 	m_circleDistance = circleDistance;
 }
 
-MathLibrary::Vector2 WanderComponent::setSteeringForce()
+MathLibrary::Vector2 WanderComponent::calculateForce()
 {
+	if (getSteeringForce() == 0)
+		return { 0,0 };
+
 	//find the agents position and heading
 	MathLibrary::Vector2 ownerPos = getOwner()->getTransform()->getWorldPosition();
 	MathLibrary::Vector2 heading = getMoveComponent()->getVelocity().getNormalized();

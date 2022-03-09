@@ -1,15 +1,15 @@
 #pragma once
 #include "Transform2D.h"
-#include "SeekComponent.h"
+#include "SteeringComponent.h"
 
 class WanderComponent :
-	public SeekComponent
+	public SteeringComponent
 {
 public:
 	WanderComponent(float wanderRadius, float circleOffset, float wanderForce, const char* name = "WanderComponent");
 	WanderComponent(const char* name = "WanderComponent");
 
-	MathLibrary :: Vector2 setSteeringForce()override;
+	MathLibrary :: Vector2 calculateForce()override;
 
 	void update(float deltaTime) override;
 
