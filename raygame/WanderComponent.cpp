@@ -29,5 +29,6 @@ void WanderComponent::update(float deltaTime)
 {
 	setCirclePos(getOwner()->getTransform()->getLocalPosition() + m_circleOffset);
 
+	getIntendedDirection();
 
 }
