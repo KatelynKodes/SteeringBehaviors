@@ -1,34 +1,35 @@
 #include "ChaseEnemy.h"
 #include "MoveComponent.h"
 #include "SpriteComponent.h"
-#include "SeekComponent.h"
-#include "FleeComponent.h"
-
-ChaseEnemy::ChaseEnemy()
-{
-	m_enemySpeed = 0;
-	m_chasee = nullptr;
-}
-
-ChaseEnemy::ChaseEnemy(float x, float y, const char* name, Actor* chasee, float enemySpeed) : Actor::Actor(x,y,name)
-{
-	m_enemySpeed = enemySpeed;
-	m_chasee = chasee;
-}
+#include "SteeringComponent.h"
 
 void ChaseEnemy::start()
 {
-	m_moveComponent = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
-	m_moveComponent->setMaxSpeed(m_enemySpeed);
-	m_spriteComponent = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/enemy.png")));
-	//m_seekComponent = dynamic_cast <SeekComponent*>(addComponent(new SeekComponent(m_chasee, 60)));
-	//m_seekComponent->setMoveComponent(m_moveComponent);
+	Actor::start();
 
-	m_fleeComponent = dynamic_cast<FleeComponent*>(addComponent(new FleeComponent(m_chasee, 50)));
-	m_fleeComponent->setMoveComponent(m_moveComponent);
+	m_moveComponent = addComponent<MoveComponent>();
+	addComponent(new SpriteComponent("Images/enemy.png"));
+	m_moveComponent->setMaxSpeed(500);
 }
 
 void ChaseEnemy::update(float deltaTime)
 {
 	Actor::update(deltaTime);
+
+	for (int i = 0; i < m_SteeringComponents.getLength(); i++)
+		m_force = m_force + m_SteeringComponents[i]->calculateForce();
+
+	if (m_force.getMagnitude() > getMaxForce())
+		m_force = m_force.getNormalized() * getMaxForce();
+
+
+	m_moveComponent->setVelocity(m_moveComponent->getVelocity() + m_force * deltaTime);
+}
+
+void ChaseEnemy::onAddComponent(Component* component)
+{
+	SteeringComponent* steeringComponent = dynamic_cast<SteeringComponent*>(component);
+
+	if (!steeringComponent)
+		m_SteeringComponents.addItem(steeringComponent);
 }

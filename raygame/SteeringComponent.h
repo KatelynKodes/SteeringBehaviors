@@ -2,6 +2,8 @@
 #include "Component.h"
 #include "Transform2D.h"
 
+class MoveComponent;
+
 class SteeringComponent :
 	public Component
 {
@@ -17,8 +19,12 @@ public:
 	Actor* getTarget() { return m_target; }
 	void setTarget(Actor* target) { m_target = target; }
 
+	void setMoveComponent(MoveComponent* moveComponent) { m_moveComponent = moveComponent; }
+	MoveComponent* getMoveComponent() { return m_moveComponent; }
+
 private:
 	float m_steeringForce =0;
 	Actor* m_target = nullptr;
+	MoveComponent* m_moveComponent;
 };
 

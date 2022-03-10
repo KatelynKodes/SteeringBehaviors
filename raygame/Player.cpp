@@ -8,7 +8,7 @@ Player::Player()
 {
 }
 
-Player::Player(float x, float y, const char* name, MathLibrary::Vector2 velocity) : Actor::Actor(x,y,name)
+Player::Player(float x, float y, MathLibrary::Vector2 velocity) : Actor::Actor(x,y)
 {
 	m_velocity = velocity;
 }

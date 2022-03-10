@@ -1,9 +1,10 @@
 #include "WanderComponent.h"
+#include "MoveComponent.h"
 #include "Actor.h"
 #include <stdlib.h>
 #include<time.h>
 
-WanderComponent::WanderComponent(float wanderRadius, float circleDistance, float wanderForce, const char* name) : SeekComponent::SeekComponent(nullptr,wanderForce)
+WanderComponent::WanderComponent(float wanderRadius, float circleDistance, float wanderForce) : SteeringComponent::SteeringComponent(nullptr, wanderForce)
 {
 	m_wanderRadius = wanderRadius;
 	m_circleDistance = circleDistance;

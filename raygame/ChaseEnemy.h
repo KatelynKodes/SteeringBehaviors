@@ -1,28 +1,30 @@
 #pragma once
 #include "Actor.h"
+#include "DynamicArray.h"
+#include "Transform2D.h"
 
 class MoveComponent;
 class SpriteComponent;
-class SeekComponent;
-class FleeComponent;
+class SteeringComponent;
 
 class ChaseEnemy :
 	public Actor
 {
 public:
-	ChaseEnemy();
-	ChaseEnemy(float x, float y, const char* name, Actor* chasee, float enemySpeed);
-	~ChaseEnemy();
+	ChaseEnemy(float x, float y) : Actor::Actor(x, y) {};
 
 	void start() override;
 	void update(float deltaTime) override;
 
+	void onAddComponent(Component* component) override;
+
+	float getMaxForce() { return m_maxForce; }
+	void setMaxForce(float value) { m_maxForce = value; }
+
 private:
-	float m_enemySpeed;
-	Actor* m_chasee;
+	float m_maxForce;
+	MathLibrary::Vector2 m_force;
 	MoveComponent* m_moveComponent;
-	SpriteComponent* m_spriteComponent;
-	SeekComponent* m_seekComponent;
-	FleeComponent* m_fleeComponent;
+	DynamicArray<SteeringComponent*> m_SteeringComponents;
 };
 

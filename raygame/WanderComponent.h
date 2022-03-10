@@ -6,12 +6,9 @@ class WanderComponent :
 	public SteeringComponent
 {
 public:
-	WanderComponent(float wanderRadius, float circleOffset, float wanderForce, const char* name = "WanderComponent");
-	WanderComponent(const char* name = "WanderComponent");
+	WanderComponent(float wanderRadius, float circleOffset, float wanderForce);
 
 	MathLibrary :: Vector2 calculateForce()override;
-
-	void update(float deltaTime) override;
 
 private:
 	float m_wanderRadius = 0;

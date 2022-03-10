@@ -1,5 +1,6 @@
 #include "SeekComponent.h"
 #include "Transform2D.h"
+#include "MoveComponent.h"
 #include "Actor.h"
 
 MathLibrary::Vector2 SeekComponent::calculateForce()
@@ -11,6 +12,6 @@ MathLibrary::Vector2 SeekComponent::calculateForce()
 
 	MathLibrary::Vector2 targetDir = getTarget()->getTransform()->getWorldPosition() - getOwner()->getTransform()->getWorldPosition();
 	MathLibrary::Vector2 desiredVelocity = targetDir.getNormalized() * getSteeringForce();
-	MathLibrary::Vector2 seekForce = desiredVelocity - 
+	MathLibrary::Vector2 seekForce = desiredVelocity - getMoveComponent()->getVelocity();
 	return seekForce;
 }

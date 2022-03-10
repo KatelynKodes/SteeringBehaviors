@@ -12,7 +12,7 @@ public:
     /// <param name="x">Position on the x axis</param>
     /// <param name="y">Position on the y axis</param>
     /// <param name="name">The name of this actor.</param>
-    Actor(float x, float y, const char* name);
+    Actor(float x, float y);
 
     /// <summary>
     /// </summary>
@@ -72,7 +72,7 @@ public:
     /// Called when a new component is added to the actor
     /// </summary>
     /// <param name = "component"> The new component to remove from the actor array </param>
-    virtual void onAddNewComponent(Component* component);
+    virtual void onAddComponent(Component* component) {};
     /// <summary>
     /// Removes the first instance found that matches the component name
     /// </summary>
@@ -153,7 +153,7 @@ inline T* Actor::getComponent()
         T* temp = dynamic_cast<T*>(m_components[i]);
         //If the name passed through is the same as the component's name...
         if(temp)
-            return m_components[i];
+            return (T*)m_components[i];
     }
 
     return nullptr;
