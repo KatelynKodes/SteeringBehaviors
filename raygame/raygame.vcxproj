@@ -147,11 +147,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AABBCollider.cpp" />
+    <ClCompile Include="ABDecision.cpp" />
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="ChaseEnemy.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="Decision.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="FleeComponent.cpp" />
     <ClCompile Include="InputComponent.cpp" />
@@ -170,7 +172,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AABBCollider.h" />
+    <ClInclude Include="ABDecision.h" />
     <ClInclude Include="Actor.h" />
+    <ClInclude Include="Decision.h" />
     <ClInclude Include="DynamicArray.h" />
     <ClInclude Include="ChaseEnemy.h" />
     <ClInclude Include="CircleCollider.h" />
