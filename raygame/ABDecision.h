@@ -8,7 +8,7 @@ class BooleanDecision :
 	public Decision
 {
 public:
-	BooleanDecision(Decision* leftchild = nullptr, Decision* rightChild = nullptr);
+	BooleanDecision(Decision* truechild = nullptr, Decision* falseChild = nullptr);
 	///<summary>
 	/// Checks the condition and transitions to a different decision based on the return value
 	///</summary>
@@ -26,7 +26,7 @@ public:
 	
 
 private:
-	Decision* m_left;
-	Decision* m_right;
+	Decision* m_true;
+	Decision* m_false;
 };
 

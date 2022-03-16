@@ -9,5 +9,6 @@ class Decision
 {
 public:
 	virtual void makeDecision(Agent* Actor, float deltaTime) = 0;
+
 };
 
