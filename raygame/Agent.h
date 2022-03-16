@@ -10,6 +10,7 @@ class Agent :
 	public Actor
 {
 public:
+	Agent(float x, float y, const char* name, float maxForce, float maxSpeed) : Actor(x, y, name) { m_maxForce = maxForce; m_maxSpeed = maxSpeed; }
 	void start() override;
 	void update(float deltaTime) override;
 	void onAddComponent(Component* component) override;
@@ -20,6 +21,7 @@ public:
 private:
 	DynamicArray<SteeringComponent*> m_steeringComponents;
 	float m_maxForce;
+	float m_maxSpeed;
 	MoveComponent* m_moveComponent;
 	MathLibrary::Vector2 m_force;
 };

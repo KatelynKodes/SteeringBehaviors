@@ -36,6 +36,9 @@
     <Filter Include="Decisions">
       <UniqueIdentifier>{37391ede-d04d-4550-93ad-ab3b8e673a91}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Images">
+      <UniqueIdentifier>{9796eaff-1628-4bb4-a089-578620458881}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -83,17 +86,11 @@
     <ClCompile Include="MoveComponent.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
-    <ClCompile Include="ChaseEnemy.cpp">
-      <Filter>Source Files\Actor</Filter>
-    </ClCompile>
     <ClCompile Include="Scene.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="StartingScene.cpp">
       <Filter>Source Files\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="MainScene.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Decision.cpp">
       <Filter>Source Files</Filter>
@@ -184,13 +181,7 @@
     <ClInclude Include="MoveComponent.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
-    <ClInclude Include="ChaseEnemy.h">
-      <Filter>Header Files\Actors</Filter>
-    </ClInclude>
     <ClInclude Include="DynamicArray.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MainScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Decision.h">
@@ -232,5 +223,13 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="raygame.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Images\enemy.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\player.png">
+      <Filter>Images</Filter>
+    </Image>
   </ItemGroup>
 </Project>

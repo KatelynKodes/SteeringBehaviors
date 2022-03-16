@@ -18,11 +18,12 @@ Actor::~Actor()
 }
 
 
-Actor::Actor(float x, float y)
+Actor::Actor(float x, float y, const char* name)
 {
     //Initialze default values
     m_transform = new Transform2D(this);
     m_transform->setLocalPosition({ x,y });
+    m_name = name;
 }
 
 Component* Actor::addComponent(Component* component)

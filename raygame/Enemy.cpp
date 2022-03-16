@@ -10,7 +10,7 @@
 #include "WanderDecision.h"
 #include "SeekDecision.h"
 
-Enemy::Enemy(float x, float y, const char* name, float maxForce, float maxSpeed, Actor* target): Agent(x,y,maxForce,maxSpeed)
+Enemy::Enemy(float x, float y, const char* name, float maxForce, float maxSpeed, Actor* target): Agent(x,y, name, maxForce,maxSpeed)
 {
 	m_target = target;
 }

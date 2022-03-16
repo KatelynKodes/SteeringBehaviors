@@ -151,7 +151,6 @@
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Agent.cpp" />
     <ClCompile Include="AggressiveDecision.cpp" />
-    <ClCompile Include="ChaseEnemy.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Component.cpp" />
@@ -164,7 +163,6 @@
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="InRangeDecision.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MainScene.cpp" />
     <ClCompile Include="MoveComponent.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -187,7 +185,6 @@
     <ClInclude Include="Decision.h" />
     <ClInclude Include="DecisionComponent.h" />
     <ClInclude Include="DynamicArray.h" />
-    <ClInclude Include="ChaseEnemy.h" />
     <ClInclude Include="CircleCollider.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Component.h" />
@@ -197,7 +194,6 @@
     <ClInclude Include="IdleDecision.h" />
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="InRangeDecision.h" />
-    <ClInclude Include="MainScene.h" />
     <ClInclude Include="MoveComponent.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="resource.h" />
@@ -214,6 +210,14 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="raygame.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Images\enemy.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Images\player.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,7 +4,7 @@
 #include "MoveComponent.h"
 #include "SpriteComponent.h"
 #include "Player.h"
-#include "MainScene.h"
+#include "StartingScene.h"
 
 bool Engine::m_applicationShouldClose = false;
 Scene** Engine::m_scenes = new Scene*;
@@ -30,9 +30,9 @@ void Engine::start()
 	SetTargetFPS(0);
 
 	//Start the scene
-	m_currentSceneIndex = addScene(new MainScene());
+	m_currentSceneIndex = addScene(new StartingScene());
 
-	addScene(new MainScene);
+	addScene(new StartingScene);
 
 	m_scenes[m_currentSceneIndex]->start();
 }

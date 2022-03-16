@@ -12,7 +12,7 @@ class Player :
 public:
 	//Constructors/deconstructors
 	Player();
-	Player(float x, float y, MathLibrary::Vector2 velocity);
+	Player(float x, float y, const char* name, MathLibrary::Vector2 velocity);
 	~Player();
 
 	//Gets velocity and speed

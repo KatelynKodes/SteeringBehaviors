@@ -12,7 +12,7 @@ public:
     /// <param name="x">Position on the x axis</param>
     /// <param name="y">Position on the y axis</param>
     /// <param name="name">The name of this actor.</param>
-    Actor(float x, float y);
+    Actor(float x, float y, const char* name);
 
     /// <summary>
     /// </summary>
